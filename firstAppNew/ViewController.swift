@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var blueButton: UIButton!
+    @IBOutlet weak var redButton: UIButton!
+    @IBOutlet weak var redLogo: UIImageView!
+    @IBOutlet weak var blueLogo: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +24,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func hideBlue(sender: AnyObject) {
+        blueLogo.hidden = true
+        redLogo.hidden = false
+        
+    }
 
+    @IBAction func hideRed(sender: AnyObject) {
+        redLogo.hidden = true
+        blueLogo.hidden = false
+    }
 }
 

@@ -10,14 +10,56 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    // global variable sum = 0
+    var sum = 0
+    var num = 0
+    var newSum = 0
+    @IBOutlet weak var multiplesLogo: UIImageView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var inputField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var textLable: UILabel!
+    
+    
+    @IBAction func playPressed(sender : UIButton!){
+        if inputField != nil && inputField.text != "" {
+            playButton.hidden = true
+            multiplesLogo.hidden = true
+            inputField.hidden = true
+            addButton.hidden = false
+            textLable.hidden = false
+            
+        }
+    
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func addMultiple(sender: UIButton!) {
+        
+        if sum >= 100 {
+            restartMultiples()
+        }
+        else
+        {
+        num = (Int)(inputField.text!)!
+        newSum = sum + num
+        textLable.text = " \(sum) + \(num) = \(newSum)"
+        sum = newSum
+        }
+        
+        
+        
+    }
+    
+    func restartMultiples() {
+        playButton.hidden = false
+        multiplesLogo.hidden = false
+        inputField.hidden = false
+        inputField.text = ""
+        addButton.hidden = true
+        textLable.hidden = true
+        sum = 0
+        newSum = 0
+        
     }
 
 
